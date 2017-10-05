@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+
+
+	<!-- If you are using JBoss AS7 with JTA transaction then use this persistence-unit -->
+
+	<persistence-unit name="defaultPU" transaction-type="JTA">
+		<jta-data-source>java:jboss/datasources/firebirdDS</jta-data-source>
+
+		<class>br.com.interage.business.model.Country</class>
+		<class>br.com.interage.business.model.Customer</class>
+		<class>br.com.interage.business.model.Department</class>
+		<class>br.com.interage.business.model.Employee</class>
+		<class>br.com.interage.business.model.Job</class>
+		<class>br.com.interage.business.model.PhoneList</class>
+		<class>br.com.interage.business.model.ProjDeptBudget</class>
+		<class>br.com.interage.business.model.Project</class>
+		<class>br.com.interage.business.model.SalaryHistory</class>
+		<class>br.com.interage.business.model.Sales</class>
+
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.FirebirdDialect" />
+			<property name="hibernate.transaction.jta.platform"
+				value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" />
+		</properties>
+	</persistence-unit>
+
+</persistence>

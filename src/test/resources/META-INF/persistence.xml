@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+
+
+	<!-- If you are using JBoss AS7 with JTA transaction then use this persistence-unit -->
+
+	<persistence-unit name="defaultTestPU"
+		transaction-type="RESOURCE_LOCAL">
+
+		<class>br.com.interage.business.model.Country</class>
+		<class>br.com.interage.business.model.Customer</class>
+		<class>br.com.interage.business.model.Department</class>
+		<class>br.com.interage.business.model.Employee</class>
+		<class>br.com.interage.business.model.Job</class>
+		<class>br.com.interage.business.model.PhoneList</class>
+		<class>br.com.interage.business.model.ProjDeptBudget</class>
+		<class>br.com.interage.business.model.Project</class>
+		<class>br.com.interage.business.model.SalaryHistory</class>
+		<class>br.com.interage.business.model.Sales</class>
+
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+
+			<property name="javax.persistence.jdbc.driver" value="org.firebirdsql.jdbc.FBDriver" />
+			<property name="javax.persistence.jdbc.user" value="sysdba" />
+			<property name="javax.persistence.jdbc.password" value="123456" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:firebirdsql:localhost/3050:/var/lib/firebird/3.0/data/employee.fdb" />
+
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.FirebirdDialect" />
+			<property name="hibernate.transaction.jta.platform"
+				value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" />
+		</properties>
+	</persistence-unit>
+
+</persistence>
